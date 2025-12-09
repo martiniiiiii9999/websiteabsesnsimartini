@@ -79,6 +79,15 @@ class AbsensiController extends Controller
     }
 
     /**
+     * Show the form for editing the specified resource.
+     */
+    public function edit($id)
+    {
+        $absensi = Absensi::findOrFail($id);
+        return view('absensi.edit', compact('absensi'));
+    }
+
+    /**
      * Update attendance record.
      */
     public function update(Request $request, $id)
