@@ -1,0 +1,83 @@
+==================================================
+   PANDUAN RUNNING ULANG APLIKASI
+==================================================
+
+Langkah-langkah untuk menjalankan aplikasi kembali:
+
+STEP 1: Masuk ke Direktori Project
+-----------------------------------
+cd "/Users/Documents/1. File Project/3. Project TulungWeb/8. Project web absesnsi"
+
+
+STEP 2: Pastikan Dependencies Terinstall
+-----------------------------------------
+composer install
+
+(Jika belum ada vendor/ atau ada perubahan di composer.json)
+
+
+STEP 3: Clear Cache (Opsional - Jika ada masalah)
+--------------------------------------------------
+php artisan cache:clear
+php artisan config:clear
+php artisan route:clear
+php artisan view:clear
+
+
+STEP 4: Pastikan Migration Sudah Dijalankan
+--------------------------------------------
+php artisan migrate
+
+(Jika database belum ada atau ada perubahan migration)
+
+
+STEP 5: Jalankan Aplikasi
+--------------------------
+php artisan serve
+
+Aplikasi akan berjalan di: http://localhost:8000
+
+ATAU dengan port khusus:
+php artisan serve --port=8001
+
+
+STEP 6: Akses Aplikasi di Browser
+----------------------------------
+Buka browser dan akses:
+- http://localhost:8000
+
+
+CATATAN PENTING:
+----------------
+1. Pastikan PHP sudah terinstall dan bisa diakses dari terminal
+2. Pastikan Composer sudah terinstall
+3. Jika port 8000 sudah digunakan, gunakan port lain:
+   php artisan serve --port=8001
+4. Untuk stop server, tekan Ctrl+C di terminal
+5. Jika ada error, cek file .env sudah ada dan benar
+
+
+==================================================
+   COMMAND SINGKAT RUNNING ULANG
+==================================================
+
+Untuk running cepat (jika semua sudah terinstall):
+
+cd "/Users/Documents/1. File Project/3. Project TulungWeb/8. Project web absesnsi"
+php artisan serve
+
+Itu saja! Aplikasi langsung jalan.
+
+
+==================================================
+   TENTANG DATABASE & MIGRATION
+==================================================
+
+Laravel menggunakan Migration PHP (bukan SQL langsung):
+- File migration: database/migrations/2025_11_05_010951_create_absensis_table.php
+- Untuk menjalankan migration: php artisan migrate
+- Migration akan membuat tabel di database SQLite otomatis
+
+Database yang digunakan: SQLite
+- Lokasi: database/database.sqlite
+- Dibuat otomatis saat migration pertama kali dijalankan
