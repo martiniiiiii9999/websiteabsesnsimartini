@@ -12,6 +12,11 @@
     <!-- Bootstrap Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
 
+    <script>
+        if (!localStorage.getItem('isLoggedIn')) {
+            window.location.href = 'login.html';
+        }
+    </script>
 </head>
 
 <body>
@@ -164,6 +169,7 @@
             }
         });
     </script>
+    <script src="auth-helper.js"></script>
 </body>
 
 </html>
